@@ -9,14 +9,17 @@ const fetchMovies = async () => {
     const data = await response.json();
     return data.Episodes;
   } else {
-    throw new Error('error');
+    throw new Error('operarions.js');
   }
 };
 
 //thunk
 export const getAllMovies = () => {
-  async dispatch => {
-    const movies = fetchMovies();
-    console.log(movies);
+  async (dispatch) => {
+    const movies = await fetchMovies()
+    movies.map(movie => dispatch(actions.add(movie.Title)));
+
+    
+
   };
 };
