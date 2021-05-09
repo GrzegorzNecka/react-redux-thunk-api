@@ -1,13 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import actions from '../duck/actions';
+import {connect } from 'react-redux'
+import actions from '../duck/actions'
 
-const MoviesForm = props => {
+const MoviesForm = (props) => {
   const movieInput = React.createRef();
 
   const addMovie = event => {
     event.preventDefault();
-    props.add(movieInput.current.value);
+    props.add(movieInput.current.value)
     // console.log('form', movieInput.current.value);
   };
 
@@ -28,7 +28,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 //connect użyty po to aby odpalać akcje, które wcześniej uworzylismy
-export default connect(
-  null,
-  mapDispatchToProps
-)(MoviesForm);
+export default connect(null,mapDispatchToProps)(MoviesForm);
