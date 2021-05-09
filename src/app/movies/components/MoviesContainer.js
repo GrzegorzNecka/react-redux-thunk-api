@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getAllMovies } from '../duck/operations';
 
 const MoviesContainer = ({ movies }) => {
-  // useEffect(() => {
-  //   consol.log('componentDidMount');
-  // }, []);
+  useEffect(() => {
+    console.log('dd');
+  }, []);
 
   return (
     <ul>
@@ -17,6 +18,11 @@ const MoviesContainer = ({ movies }) => {
 
 const mapStateToProps = state => ({
   movies: state.movies
+});
+
+mapDispatchToProps = dispatch => ({
+  //thunk
+  getAllMovies: () => dispatch(getAllMovies())
 });
 
 export default connect(
