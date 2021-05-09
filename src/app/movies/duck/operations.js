@@ -14,12 +14,19 @@ const fetchMovies = async () => {
 };
 
 //thunk
+// export const getAllMovies = () => {
+//   async (dispatch) => {
+//     const movies = await fetchMovies()
+//     movies.map(movie => dispatch(actions.add(movie.Title)));
+
+//   };
+
 export const getAllMovies = () => {
   async (dispatch) => {
     const movies = await fetchMovies()
     movies.map(movie => dispatch(actions.add(movie.Title)));
 
-    
-
   };
+
 };
+ 
