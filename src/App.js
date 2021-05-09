@@ -1,12 +1,24 @@
 import React from 'react';
 import MoviesContainer from './app/movies/components/MoviesContainer';
-import faker from 'faker';
 
 const App = () => {
-  // let words = faker.random.words(6);
-  let words = faker.music.genre(6);
+  const fetchMovies = async () => {
+    const response = await fetch(
+      'https://www.omdbapi.com/?i=tt0944947&Season=1&apikey=a575f8ce'
+    );
 
-  console.log(words);
+    if (response.status === 200) {
+      const data = await response.json();
+      return data.Episodes;
+    } else {
+      throw new Error('error');
+    }
+  };
+
+  fetchMovies().then(movies => {
+    const episode = movies.filter(movie => movie.Title);
+    console.log(episode);
+  });
 
   return (
     <div className="App">
