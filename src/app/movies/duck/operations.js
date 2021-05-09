@@ -1,12 +1,14 @@
+import actions from './actions';
+
 const fetchMovies = async () => {
   const response = await fetch(
-    'https://www.omdbapi.com/?i=tt0944947&Season=1&apikey=a575f8ce',
-    { method: 'GET' }
+    'https://www.omdbapi.com/?i=tt0944947&Season=1&apikey=a575f8ce'
   );
 
-  const json = await response.json();
-
-  return json;
+  if (response.status === 200) {
+    const data = await response.json();
+    return data.Episodes;
+  } else {
+    throw new Error('error');
+  }
 };
-
-console.log(fetchMovies());

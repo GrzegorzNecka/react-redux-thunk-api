@@ -16,8 +16,9 @@ const App = () => {
   };
 
   fetchMovies().then(movies => {
-    const mov = [];
-    movies.forEach(movie => console.log(movie.Title));
+    const abc = movies.map(movie => movie.Title);
+
+    console.log(abc);
   });
 
   return (
