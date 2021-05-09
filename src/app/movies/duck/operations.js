@@ -12,3 +12,11 @@ const fetchMovies = async () => {
     throw new Error('error');
   }
 };
+
+//thunk
+export const getAllMovies = () => {
+  async dispatch => {
+    const movies = fetchMovies();
+    console.log(movies);
+  };
+};
