@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getAllMovies } from '../duck/operations';
 
-const MoviesContainer = ({ movies, getAllMovies }) => {
+
+const MoviesContainer = ({ movies, getMoviesFromApi }) => {
   //---------------------
 
-  // console.log(getAllMovies());
   useEffect(() => {
-    // console.log(getAllMovies());
-    // getAllMovies();
+    console.log('getAllMovies()', getMoviesFromApi());
   }, []);
 
   return (
@@ -26,10 +25,7 @@ const mapStateToProps = state => ({
 
 //thunk
 const mapDispatchToProps = dispatch => ({
-  getAllMovies: () => dispatch(getAllMovies())
+  getMoviesFromApi: () => dispatch(getAllMovies())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MoviesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesContainer);
