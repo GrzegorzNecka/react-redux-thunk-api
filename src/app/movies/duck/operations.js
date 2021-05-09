@@ -9,7 +9,7 @@ const fetchMovies = async () => {
   console.log('response', response);
 
   const json = await response.json();
-  console.log('json', json);
+
   return json;
 };
 

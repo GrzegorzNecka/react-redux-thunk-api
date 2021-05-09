@@ -4,10 +4,9 @@ import { getAllMovies } from '../duck/operations';
 
 
 const MoviesContainer = ({ movies, getMoviesFromApi }) => {
-  //---------------------
 
   useEffect(() => {
-    console.log('getAllMovies()', getMoviesFromApi());
+    getMoviesFromApi()
   }, []);
 
   return (
