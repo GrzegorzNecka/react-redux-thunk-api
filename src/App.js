@@ -16,8 +16,8 @@ const App = () => {
   };
 
   fetchMovies().then(movies => {
-    const episode = movies.filter(movie => movie.Title);
-    console.log(episode);
+    const mov = [];
+    movies.forEach(movie => console.log(movie.Title));
   });
 
   return (
